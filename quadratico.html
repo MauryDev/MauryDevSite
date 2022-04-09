@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+</head>
+<body>
+<p>Afim.h</p>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">pragma</span> once</span>
+
+
+
+<span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;string&gt;</span></span>
+
+<span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;vector&gt;</span></span>
+
+<span class="hljs-keyword" style="font-weight: 700;">namespace</span> Math_Funcao
+
+{
+
+	 <span class="hljs-keyword" style="font-weight: 700;">struct</span> AfimStruct
+
+	 {
+
+		 AfimStruct(<span class="hljs-keyword" style="font-weight: 700;">double</span> a, <span class="hljs-keyword" style="font-weight: 700;">double</span> b);
+
+		 <span class="hljs-keyword" style="font-weight: 700;">double</span> a, b;
+
+		 <span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">double</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">f</span><span class="hljs-params">(<span class="hljs-keyword" style="font-weight: 700;">double</span> x)</span></span>;
+
+		 <span class="hljs-comment" style="color: rgb(136, 136, 136);">// Disable realocation : std::vector&lt;double&gt;&amp;</span>
+
+		 <span class="hljs-built_in" style="color: rgb(57, 115, 0);">std</span>::<span class="hljs-built_in" style="color: rgb(57, 115, 0);">vector</span>&lt;<span class="hljs-keyword" style="font-weight: 700;">double</span>&gt; GetResults(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">std</span>::<span class="hljs-built_in" style="color: rgb(57, 115, 0);">vector</span>&lt;<span class="hljs-keyword" style="font-weight: 700;">double</span>&gt;&amp; x);
+
+		 <span class="hljs-built_in" style="color: rgb(57, 115, 0);">std</span>::<span class="hljs-function"><span class="hljs-built_in" style="color: rgb(57, 115, 0);">string</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">Format</span><span class="hljs-params">(<span class="hljs-keyword" style="font-weight: 700;">double</span> x)</span></span>;
+
+		 <span class="hljs-function"><span class="hljs-keyword" style="font-weight: 700;">double</span> <span class="hljs-title" style="color: rgb(136, 0, 0); font-weight: 700;">X</span><span class="hljs-params">()</span></span>;
+
+
+
+	 };
+
+}</pre>
+<p>Afim.cpp</p>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);"><span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-meta-string" style="color: rgb(77, 153, 191);">&lt;math.h&gt;</span></span>
+<span class="hljs-meta" style="color: rgb(31, 113, 153);">#<span class="hljs-meta-keyword" style="font-weight: 700;">include</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">"Math_Quadratica.h"</span></span>
+<span class="hljs-keyword" style="font-weight: 700;">namespace</span> Math_Funcao
+{
+	Quadratica::Quadratica(<span class="hljs-keyword" style="font-weight: 700;">double</span> a, <span class="hljs-keyword" style="font-weight: 700;">double</span> b, <span class="hljs-keyword" style="font-weight: 700;">double</span> c)
+	{
+		<span class="hljs-comment" style="color: rgb(136, 136, 136);">// sendo a != 0. a == 0 error</span>
+		<span class="hljs-keyword" style="font-weight: 700;">if</span> (a == <span class="hljs-number" style="color: rgb(136, 0, 0);">0.0</span>)
+		{
+			<span class="hljs-keyword" style="font-weight: 700;">throw</span> <span class="hljs-string" style="color: rgb(136, 0, 0);">"Invalid parameter 'a'"</span>;
+		}
+		<span class="hljs-keyword" style="font-weight: 700;">this</span>-&gt;a = a;
+		<span class="hljs-keyword" style="font-weight: 700;">this</span>-&gt;b = b;
+		<span class="hljs-keyword" style="font-weight: 700;">this</span>-&gt;c = c;
+	}
+	<span class="hljs-keyword" style="font-weight: 700;">double</span> Quadratica::f(<span class="hljs-keyword" style="font-weight: 700;">double</span> x)
+	{
+		<span class="hljs-comment" style="color: rgb(136, 136, 136);">// f(x) = ax2+ bx + c</span>
+		<span class="hljs-keyword" style="font-weight: 700;">return</span> <span class="hljs-keyword" style="font-weight: 700;">this</span>-&gt;a * <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pow</span>(x,<span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>) + <span class="hljs-keyword" style="font-weight: 700;">this</span>-&gt;b * x + <span class="hljs-keyword" style="font-weight: 700;">this</span>-&gt;c;
+	}
+	<span class="hljs-keyword" style="font-weight: 700;">double</span> Quadratica::x()
+	{
+		<span class="hljs-keyword" style="font-weight: 700;">auto</span> v1 = <span class="hljs-built_in" style="color: rgb(57, 115, 0);">sqrt</span>(<span class="hljs-built_in" style="color: rgb(57, 115, 0);">pow</span>(b, <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>) - <span class="hljs-number" style="color: rgb(136, 0, 0);">4</span> * a * c);
+		<span class="hljs-keyword" style="font-weight: 700;">auto</span> v2 = <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span> * a;
+		<span class="hljs-keyword" style="font-weight: 700;">auto</span> r1 = (-b + v1) / v2;
+		<span class="hljs-keyword" style="font-weight: 700;">auto</span> r2 = (-b - v1) / v2;
+		<span class="hljs-keyword" style="font-weight: 700;">return</span> r1 - ((r1 - r2) / <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>);
+	}
+	<span class="hljs-keyword" style="font-weight: 700;">double</span> Quadratica::xv()
+	{
+		<span class="hljs-keyword" style="font-weight: 700;">return</span> -b / (<span class="hljs-number" style="color: rgb(136, 0, 0);">2.0</span> * a);
+	}
+	<span class="hljs-keyword" style="font-weight: 700;">double</span> Quadratica::yv()
+	{
+		<span class="hljs-keyword" style="font-weight: 700;">return</span> delta() / (<span class="hljs-number" style="color: rgb(136, 0, 0);">4</span> * a);
+	}
+	<span class="hljs-keyword" style="font-weight: 700;">double</span> Quadratica::delta()
+	{
+		<span class="hljs-keyword" style="font-weight: 700;">return</span> <span class="hljs-built_in" style="color: rgb(57, 115, 0);">pow</span>(b, <span class="hljs-number" style="color: rgb(136, 0, 0);">2</span>) - <span class="hljs-number" style="color: rgb(136, 0, 0);">4</span> * a * c;
+	}
+}
+</pre>
+</body>
+</html>

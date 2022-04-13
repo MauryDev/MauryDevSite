@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+</head>
+<body>
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">Algoritmo <span class="hljs-string" style="color: rgb(136, 0, 0);">"Area_Circulo"</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Disciplina   : [Linguagem e Lógica de Programação]</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Professor   : Antonio Carlos Nicolodi </span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Descrição   : Aqui você descreve o que o programa faz! (função)</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Autor(a)    : Nome do(a) aluno(a)</span>
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Data atual  : 13/04/2022</span>
+Var
+<span class="hljs-comment" style="color: rgb(136, 136, 136);">// Seção de Declarações das variáveis </span>
+raio,area: real
+confirmacao: caractere
+pode_continua: logico
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+pode_continua &lt;- verdadeiro
+   enquanto pode_continua faca
+     escreval(<span class="hljs-string" style="color: rgb(136, 0, 0);">"-- Área do Círculo --"</span>)
+     escreva(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Digite o valor do raio: "</span>)
+     leia(raio)
+     // area &lt;- pi * (raio* raio)
+     area &lt;- 3.14 * (raio* raio)
+
+     escreval(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Valor da área é"</span>,area)
+
+     escreva(<span class="hljs-string" style="color: rgb(136, 0, 0);">"Deseja continuar? (Sim/Nao): "</span>)
+      leia(confirmacao)
+
+      se maiusc(confirmacao) &lt;&gt; <span class="hljs-string" style="color: rgb(136, 0, 0);">"SIM"</span> entao
+         pode_continua &lt;- falso
+      fimse
+      limpatela()
+   fimenquanto
+
+
+Fimalgoritmo</pre>
+  
+  </body>
+</html>
